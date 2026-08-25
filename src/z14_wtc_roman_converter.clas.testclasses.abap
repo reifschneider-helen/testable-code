@@ -15,10 +15,10 @@ DURATION SHORT.
 
       setup,
 
-      verify_single      FOR TESTING RAISING cx_static_check,
-      verify_additive    FOR TESTING RAISING cx_static_check,
-      verify_subtractive FOR TESTING RAISING cx_static_check,
-      verify_complex     FOR TESTING RAISING cx_static_check,
+      given_single_letter      FOR TESTING RAISING cx_static_check,
+      given_additive_number    FOR TESTING RAISING cx_static_check,
+      given_subtractive_number FOR TESTING RAISING cx_static_check,
+      given_complex_number     FOR TESTING RAISING cx_static_check,
 
       error_cases        FOR TESTING RAISING cx_static_check.
 
@@ -43,7 +43,7 @@ CLASS ltc_roman_converter IMPLEMENTATION.
 
   ENDMETHOD.
 
-  METHOD verify_single.
+  METHOD given_single_letter.
     assert_convert( iv_roman = '' iv_arabic = 0 ).
     assert_convert( iv_roman = 'I' iv_arabic = 1 ).
     assert_convert( iv_roman = 'V' iv_arabic = 5 ).
@@ -54,7 +54,7 @@ CLASS ltc_roman_converter IMPLEMENTATION.
     assert_convert( iv_roman = 'M' iv_arabic = 1000 ).
   ENDMETHOD.
 
-  METHOD verify_additive.
+  METHOD given_additive_number.
     assert_convert( iv_roman = 'II' iv_arabic = 2 ).
     assert_convert( iv_roman = 'III' iv_arabic = 3 ).
     assert_convert( iv_roman = 'XV' iv_arabic = 15 ).
@@ -62,13 +62,13 @@ CLASS ltc_roman_converter IMPLEMENTATION.
     assert_convert( iv_roman = 'MM' iv_arabic = 2000 ).
   ENDMETHOD.
 
-  METHOD verify_subtractive.
+  METHOD given_subtractive_number.
     assert_convert( iv_roman = 'IX' iv_arabic = 9 ).
     assert_convert( iv_roman = 'XC' iv_arabic = 90 ).
     assert_convert( iv_roman = 'CM' iv_arabic = 900 ).
   ENDMETHOD.
 
-  METHOD verify_complex.
+  METHOD given_complex_number.
     assert_convert( iv_roman = 'XIV' iv_arabic = 14 ).
     assert_convert( iv_roman = 'CMXL' iv_arabic = 940 ).
     assert_convert( iv_roman = 'CMXLIII' iv_arabic = 943 ).
