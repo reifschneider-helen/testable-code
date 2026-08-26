@@ -17,7 +17,8 @@ CLASS zcl_14_money_machine DEFINITION
 
       get_change
         IMPORTING iv_amount        TYPE i
-        RETURNING VALUE(rt_change) TYPE tt_change.
+        RETURNING VALUE(rt_change) TYPE tt_change
+        RAISING zcx_14_exceptions.
 
   PROTECTED SECTION.
 
@@ -44,15 +45,22 @@ CLASS zcl_14_money_machine IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD get_change.
+    IF iv_amount <= 0.
+        RAISE EXCEPTION NEW zcx_14_exceptions( textid = zcx_14_exceptions=>invalid_value
+                                               iv_msgv1 = iv_amount
+                                               iv_msgv2 = 'money machine' ).
+        EXIT.
+    ENDIF.
+
     DATA(lv_remaining_amount) = iv_amount.
+
 
     LOOP AT lt_ordered_amounts ASSIGNING FIELD-SYMBOL(<ls_amount>).
 
-      IF lv_remaining_amount > 0
-         AND lv_remaining_amount >= <ls_amount>-amount.
+     WHILE lv_remaining_amount >= <ls_amount>-amount.
             APPEND <ls_amount> TO rt_change.
             lv_remaining_amount -= <ls_amount>-amount.
-      ENDIF.
+      ENDWHILE.
 
     ENDLOOP.
 
