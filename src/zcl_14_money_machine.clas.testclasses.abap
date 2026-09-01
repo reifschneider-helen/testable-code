@@ -41,6 +41,7 @@ CLASS  ltc_money_machine IMPLEMENTATION.
     TRY.
         lo_cut->get_change( iv_amount ).
         cl_abap_unit_assert=>fail( ). "no exception was raised
+
       CATCH zcx_14_exceptions.
     ENDTRY.
   ENDMETHOD.

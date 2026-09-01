@@ -11,7 +11,7 @@ CLASS zcx_14_exceptions DEFINITION
 
     CONSTANTS:
       BEGIN OF invalid_value,
-        msgid TYPE symsgid VALUE 'ZMSG_COMMON',
+        msgid TYPE symsgid VALUE 'ZMSG_14_COMMON',
         msgno TYPE symsgno VALUE '001',
         attr1 TYPE scx_attrname VALUE 'GV_MSGV1',
         attr2 TYPE scx_attrname VALUE 'GV_MSGV2',
