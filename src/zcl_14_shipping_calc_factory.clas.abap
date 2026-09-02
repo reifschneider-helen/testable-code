@@ -1,13 +1,15 @@
 CLASS zcl_14_shipping_calc_factory DEFINITION
   PUBLIC
   FINAL
-  CREATE PRIVATE .
+  CREATE PRIVATE
+  GLOBAL FRIENDS zcl_14_shipping_calc_injector.
 
   PUBLIC SECTION.
    CLASS-METHODS:
-      get_strategy IMPORTING iv_country         TYPE z14_shipping_con-country_code
-                   RETURNING VALUE(ro_strategy) TYPE REF TO zif_14_shipping_strategy
-                   RAISING zcx_14_shipping_error.
+      get_strategy
+        IMPORTING iv_country         TYPE z14_shipping_con-country_code
+        RETURNING VALUE(ro_strategy) TYPE REF TO zif_14_shipping_strategy
+        RAISING zcx_14_shipping_error.
 
   PROTECTED SECTION.
   PRIVATE SECTION.

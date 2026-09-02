@@ -24,14 +24,33 @@ CLASS zcx_14_shipping_error DEFINITION
         attr4 TYPE scx_attrname VALUE '',
       END OF country_not_found,
 
-        BEGIN OF invalid_strategy_class,
+      BEGIN OF invalid_strategy_class,
         msgid TYPE symsgid VALUE 'ZMSG_14_SHIPPING',
         msgno TYPE symsgno VALUE '002',
         attr1 TYPE scx_attrname VALUE 'MV_VAR1',
         attr2 TYPE scx_attrname VALUE '',
         attr3 TYPE scx_attrname VALUE '',
         attr4 TYPE scx_attrname VALUE '',
-      END OF invalid_strategy_class.
+      END OF invalid_strategy_class,
+
+      BEGIN OF invalid_declared_value,
+        msgid TYPE symsgid VALUE 'ZMSG_14_SHIPPING',
+        msgno TYPE symsgno VALUE '003',
+        attr1 TYPE scx_attrname VALUE 'MV_VAR1',
+        attr2 TYPE scx_attrname VALUE '',
+        attr3 TYPE scx_attrname VALUE '',
+        attr4 TYPE scx_attrname VALUE '',
+      END OF invalid_declared_value,
+
+       BEGIN OF invalid_weight,
+        msgid TYPE symsgid VALUE 'ZMSG_14_SHIPPING',
+        msgno TYPE symsgno VALUE '004',
+        attr1 TYPE scx_attrname VALUE 'MV_VAR1',
+        attr2 TYPE scx_attrname VALUE '',
+        attr3 TYPE scx_attrname VALUE '',
+        attr4 TYPE scx_attrname VALUE '',
+      END OF invalid_weight.
+
 
     METHODS constructor
       IMPORTING

@@ -17,6 +17,11 @@ ENDCLASS.
 
 CLASS zcl_14_shipping_eu IMPLEMENTATION.
   METHOD zif_14_shipping_strategy~calculate_fee.
+    IF iv_declared_value <= 0.
+      RAISE EXCEPTION NEW zcx_14_shipping_error( textid  = zcx_14_shipping_error=>invalid_declared_value
+                                                 iv_var1 = |{ 'EU' }| ).
+    ENDIF.
+
     rv_fee = lc_flat_rate + lc_rate_per_amount * iv_declared_value.
   ENDMETHOD.
 

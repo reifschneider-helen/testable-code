@@ -6,6 +6,7 @@ INTERFACE zif_14_shipping_strategy
 
   METHODS:
     calculate_fee IMPORTING iv_weight_kg      TYPE ty_weight_kg
-                            iv_declared_value TYPE   ty_amount
-                  RETURNING VALUE(rv_fee)     TYPE    ty_amount.
+                            iv_declared_value TYPE ty_amount
+                  RETURNING VALUE(rv_fee)     TYPE ty_amount
+                  RAISING   zcx_14_shipping_error.
 ENDINTERFACE.

@@ -20,6 +20,18 @@
      <MSGNR>002</MSGNR>
      <TEXT>Strategy class &amp;1 is invalid</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_14_SHIPPING</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Declared value must be greater than 0 for &amp;1 shipping</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_14_SHIPPING</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Weight must be grater than 0 for &amp;1 shipping</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

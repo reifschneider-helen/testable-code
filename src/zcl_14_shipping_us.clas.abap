@@ -15,6 +15,11 @@ ENDCLASS.
 
 CLASS zcl_14_shipping_us IMPLEMENTATION.
   METHOD zif_14_shipping_strategy~calculate_fee.
+    IF iv_weight_kg <= 0.
+      RAISE EXCEPTION NEW zcx_14_shipping_error( textid  = zcx_14_shipping_error=>invalid_weight
+                                                 iv_var1 = |{ 'US' }| ).
+    ENDIF.
+
     rv_fee = lc_flat_rate + lc_rate_per_kg * iv_weight_kg.
   ENDMETHOD.
 
